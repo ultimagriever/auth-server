@@ -4,6 +4,12 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const app = express();
 const routes = require('./routes');
+const mongoose = require('mongoose');
+const dotenv = require('dotenv');
+
+dotenv.config({ silent: true });
+
+mongoose.connect(process.env.MONGODB_URI);
 
 // App Setup
 app.use(morgan('combined'));
