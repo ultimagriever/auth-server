@@ -6,12 +6,14 @@ const app = express();
 const routes = require('./routes');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
+const cors = require('cors');
 
 dotenv.config({ silent: true });
 
 mongoose.connect(process.env.MONGODB_URI);
 
 // App Setup
+app.use(cors());
 app.use(morgan('combined'));
 app.use(bodyParser.json({ type: '*/*' }));
 
