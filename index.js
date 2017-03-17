@@ -20,7 +20,7 @@ app.use(bodyParser.json({ type: '*/*' }));
 routes(app);
 
 // Server Setup
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8080;
 const server = http.createServer(app);
 server.listen(port);
 console.log('Server listening on port %d in %s mode', port, app.settings.env);

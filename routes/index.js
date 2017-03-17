@@ -16,4 +16,8 @@ module.exports = app => {
   app.get('/auth/google', passport.authenticate('google', { scope: ['openid', 'profile', 'email'], session: false }));
   app.get('/auth/google/callback', passport.authenticate('google', { session: false }),
     AuthController.signin);
+
+  // Passwordless authentication
+  app.post('/requestToken', AuthController.requestToken);
+  app.post('/acceptToken', AuthController.acceptToken);
 };
